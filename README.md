@@ -89,12 +89,27 @@ pip install -r requirements.txt
 
 ## 📝 Usage
 
-#### Show help in console
-
+#### Shows help in console
 ```python
 py main.py -h
 ```
+![](https://github.com/Hikkaruu/FileConverter/blob/main/img/1.png)
 
+#### Shows help for image conversion 
 ```python
-py main.py image/audio/video -h
+py main.py image -h
 ```
+![](https://github.com/Hikkaruu/FileConverter/blob/main/img/2.png)
+
+#### Shows help for audio conversion 
+```python
+py main.py audio -h
+```
+![](https://github.com/Hikkaruu/FileConverter/blob/main/img/3.png)
+
+#### Shows help for video conversion
+```python
+py main.py video -h
+```
+![](https://github.com/Hikkaruu/FileConverter/blob/main/img/4.png)
+
