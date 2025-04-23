@@ -12,8 +12,8 @@ def convert_audio(args):
     if hasattr(args, 'tempo') and args.tempo != '1.0':
         stream = stream.filter('atempo', args.tempo)
     
-    if hasattr(args, 'start') and hasattr(args, 'end'):
-        stream = stream.filter('atrim', start=args.start, end=args.end)
+    if hasattr(args, 'trim_start') and hasattr(args, 'trim_end'):
+        stream = stream.filter('atrim', start=args.trim_start, end=args.trim_end)
 
     try:
         stream.output(args.output, 

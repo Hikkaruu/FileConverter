@@ -22,9 +22,9 @@ def convert_video(args):
         video = VideoFileClip(args.input)
         
         # Crop video
-        if args.cut_start or args.cut_end:
-            start = args.cut_start if args.cut_start else 0
-            end = args.cut_end if args.cut_end else video.duration
+        if args.trim_start or args.trim_end:
+            start = args.trim_start if args.trim_start else 0
+            end = args.trim_end if args.trim_end else video.duration
             video = video.subclipped(start, end)
         
         # Change tempo

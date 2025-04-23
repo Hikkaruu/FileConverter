@@ -9,8 +9,8 @@ subparsers = parser.add_subparsers(dest='command')
 
 # Image section
 image_parser = subparsers.add_parser('image', help="Image conversion")
-image_parser.add_argument('-i', '--input', type=str, required=True, help="input image path")
-image_parser.add_argument('-o', '--output', type=str, required=True, help="output image path with desired format [PNG, JPEG, BMP, TIFF, WEBP, ICO]")
+image_parser.add_argument('-i', '--input', type=str, required=True, help="input image path eg. file.jpg")
+image_parser.add_argument('-o', '--output', type=str, required=True, help="output image path with desired format [PNG, JPEG, BMP, TIFF, WEBP, ICO] eg. file.png")
 image_parser.add_argument('-wh', '--width', type=int, help="[Optional] width for resizing")
 image_parser.add_argument('-ht', '--height', type=int, help="[Optional] height for resizing")
 image_parser.add_argument('-r', '--rotate', type=int, help="[Optional] Rotation angle")
@@ -31,12 +31,11 @@ audio_parser.add_argument('-br', "--bitrate", type=str, help="Bitrate", choices=
 audio_parser.add_argument('-sr', '--sample-rate', type=int, help="Sample rate", choices=[44100, 48000], default=44100)
 audio_parser.add_argument('-v', '--volume', type=float, help="Volume adjustment (e.g. 1.5 for 50%% louder)", default=1.0)
 audio_parser.add_argument('-t', '--tempo', type=float, help="Tempo adjustment (e.g. 1.5 for 50%% faster)", default=1.0)
-audio_parser.add_argument('-cs', '--cut-start', type=float, help="Trim video start")
-audio_parser.add_argument('-ce', '--cut-end', type=float, help="Trim video end")
+audio_parser.add_argument('-ts', '--trim-start', type=float, help="Trim video start")
+audio_parser.add_argument('-te', '--trim-end', type=float, help="Trim video end")
 audio_parser.set_defaults(func=convert_audio)
     
 # Video section
-
 video_parser = subparsers.add_parser('video', help="Video conversion")
 video_parser.add_argument('-i', '--input', type=str, required=True, help="Input video path")
 video_parser.add_argument('-o', '--output', type=str, required=True, help="Output video path")
@@ -61,11 +60,11 @@ video_parser.add_argument('-v', '--volume', type=float,
                          help="Volume adjustment (e.g. 1.5 for 50%% louder)", 
                          default=1.0)
 video_parser.add_argument('-t', '--tempo', type=float, 
-                         help="Tempo adjustment (e.g. 1.5 for 50%% faster)", 
+                         help="Tempo adjustment (e.g. 1.5 for 50%% faster)",
                          default=1.0)
-video_parser.add_argument('-cs', '--cut-start', type=float, 
+video_parser.add_argument('-ts', '--trim-start', type=float, 
                          help="Trim video start (seconds)")
-video_parser.add_argument('-ce', '--cut-end', type=float, 
+video_parser.add_argument('-te', '--trim-end', type=float, 
                          help="Trim video end (seconds)")
 video_parser.add_argument('--no-audio', action='store_true', 
                          help="Remove audio from output")
